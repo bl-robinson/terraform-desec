@@ -41,10 +41,9 @@ import {
 }
 
 import {
-  for_each = toset(["em6224",
+  for_each = toset([
+    "em6224",
     "freeagent-mailer",
-    "*",
-    "*.k8s.home"
   ])
   id = "blrobinson.uk/${each.key}/CNAME"
   to = desec_rrset.blrobinson-uk-CNAMEs[each.key]

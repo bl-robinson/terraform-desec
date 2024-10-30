@@ -85,8 +85,6 @@ resource "desec_rrset" "blrobinson-uk-CNAMEs" {
   for_each = {
     "em6224"           = ["u9065180.wl181.sendgrid.net."],
     "freeagent-mailer" = ["pm.mtasv.net."],
-    "*"                = ["benrobinson1993.ddns.net."],
-    "*.k8s.home"       = ["benrobinson1993.ddns.net."]
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
@@ -99,7 +97,10 @@ resource "desec_rrset" "blrobinson-uk-CNAMEs" {
 
 resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
-    "mail"           = ["88.202.151.191"],
+    "mail"       = ["88.202.151.191"],
+    "*"          = ["88.202.151.191"],
+    "*.k8s.home" = ["88.202.151.191"]
+
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
@@ -107,5 +108,5 @@ resource "desec_rrset" "blrobinson-uk-As" {
   records = each.value
   ttl     = 3600
   # Manually depend on in order to ensure that CNAMEs get deleted before As are Added.
-  depends_on = [ desec_rrset.blrobinson-uk-CNAMEs ]
+  depends_on = [desec_rrset.blrobinson-uk-CNAMEs]
 }
