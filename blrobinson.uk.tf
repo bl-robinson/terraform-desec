@@ -36,7 +36,7 @@ resource "desec_rrset" "blrobinson-uk-TXT" {
   type    = "TXT"
   records = [
     "baiu0nOyx5HArTMYuS3aIb5Ld4WlrG8l/oGtQWNkMdg=",
-    "v=spf1 include:amazonses.com include:spf.mtasv.net ~all"
+    "v=spf1 include:_spf.mailersend.net include:amazonses.com include:spf.mtasv.net ~all"
   ]
   ttl = 3600
 }
@@ -70,6 +70,22 @@ resource "desec_rrset" "blrobinson-uk-ses-domainkey-CNAME" {
   type     = "CNAME"
   records  = ["${each.key}.dkim.amazonses.com."]
   ttl      = 3600
+}
+
+resource "desec_rrset" "blrobinson-uk-mlsned2-CNAME" {
+  domain = desec_domain.blrobinson-uk.name
+  subname = "mlsend2._domainkey"
+  type = "CNAME"
+  records = ["mlsend2._domainkey.mailersend.net."]
+  ttl = 3600
+}
+
+resource "desec_rrset" "blrobinson-uk-mlsned2-mta" {
+  domain = desec_domain.blrobinson-uk.name
+  subname = "mta"
+  type = "CNAME"
+  records = ["mailersend.net."]
+  ttl = 3600
 }
 
 resource "desec_rrset" "blrobinson-uk-sendgrid-domainkey-CNAME" {
