@@ -72,8 +72,8 @@ resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
     "mail"       = ["88.202.151.191"],
     "*"          = ["88.202.151.191"],
-    "*.k8s.home" = ["88.202.151.191"]
-
+    "*.k8s.home" = ["88.202.151.191"],
+    "container-registry.k8s.home" = ["10.0.0.101"]
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
