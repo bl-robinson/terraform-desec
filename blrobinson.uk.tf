@@ -80,3 +80,28 @@ resource "desec_rrset" "blrobinson-uk-As" {
   records = each.value
   ttl     = 3600
 }
+
+# AAAA
+
+resource "desec_rrset" "blrobinson-uk-AAAAs" {
+  for_each = {
+    ""                            = ["2a06:61c2:27ae:2::3"],
+    "www"                         = ["2a06:61c2:27ae:2::3"],
+    "unifi"                       = ["2a06:61c2:27ae:2::3"],
+    "adguard"                     = ["2a06:61c2:27ae:2::3"],
+    "grabs"                       = ["2a06:61c2:27ae:2::3"],
+    "immich"                      = ["2a06:61c2:27ae:2::3"],
+    "shed-cam"                    = ["2a06:61c2:27ae:2::3"],
+    "foundry"                     = ["2a06:61c2:27ae:2::3"],
+    "home-assistant"              = ["2a06:61c2:27ae:2::3"],
+    "container-registry.k8s.home" = ["2a06:61c2:27ae:2::4"],
+    "prometheus.k8s.home"         = ["2a06:61c2:27ae:2::4"],
+    "grafana.k8s.home"            = ["2a06:61c2:27ae:2::4"],
+    "alertmanager.k8s.home"       = ["2a06:61c2:27ae:2::4"],
+  }
+  domain  = desec_domain.blrobinson-uk.name
+  subname = each.key
+  type    = "AAAA"
+  records = each.value
+  ttl     = 3600
+}
