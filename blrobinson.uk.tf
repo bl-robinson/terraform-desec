@@ -70,9 +70,16 @@ resource "desec_rrset" "blrobinson-uk-mlsned2-mta" {
 
 resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
-    "mail"       = ["88.202.151.191"],
-    "*"          = ["88.202.151.191"],
-    "*.k8s.home" = ["88.202.151.191"],
+    "www"            = ["88.202.151.191"],
+    "adguard"        = ["88.202.151.191"],
+    "foundry"        = ["88.202.151.191"],
+    "grabs"          = ["88.202.151.191"],
+    "home-assistant" = ["88.202.151.191"],
+    "immich"         = ["88.202.151.191"],
+    "mail"           = ["88.202.151.191"],
+    "shed-cam"       = ["88.202.151.191"],
+    "unifi"          = ["88.202.151.191"],
+    "*.k8s.home"     = ["88.202.151.191"],
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
