@@ -89,6 +89,11 @@ resource "desec_rrset" "blrobinson-uk-As" {
 }
 
 # AAAA
+# All public AAAA records point to ::3 (nginx-ingress / public gateway).
+# The k8s.home services are internally accessed via ::4 (gateway-ingress)
+# using split-horizon DNS, but public DNS must route to ::3 so that
+# Let's Encrypt HTTP-01 challenges can reach the cert-manager solver
+# (which registers on both gateways). ::4 is firewalled from the internet.
 
 resource "desec_rrset" "blrobinson-uk-AAAAs" {
   for_each = {
@@ -101,10 +106,11 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
     "shed-cam"                    = ["2a06:61c2:27ae:2::3"],
     "foundry"                     = ["2a06:61c2:27ae:2::3"],
     "home-assistant"              = ["2a06:61c2:27ae:2::3"],
-    "container-registry.k8s.home" = ["2a06:61c2:27ae:2::4"],
-    "prometheus.k8s.home"         = ["2a06:61c2:27ae:2::4"],
-    "grafana.k8s.home"            = ["2a06:61c2:27ae:2::4"],
-    "alertmanager.k8s.home"       = ["2a06:61c2:27ae:2::4"],
+    "container-registry.k8s.home" = ["2a06:61c2:27ae:2::3"],
+    "prometheus.k8s.home"         = ["2a06:61c2:27ae:2::3"],
+    "grafana.k8s.home"            = ["2a06:61c2:27ae:2::3"],
+    "alertmanager.k8s.home"       = ["2a06:61c2:27ae:2::3"],
+    "vaultwarden.k8s.home"        = ["2a06:61c2:27ae:2::3"],
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
