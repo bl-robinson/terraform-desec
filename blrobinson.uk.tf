@@ -79,6 +79,7 @@ resource "desec_rrset" "blrobinson-uk-As" {
     "mail"           = ["88.202.151.191"],
     "shed-cam"       = ["88.202.151.191"],
     "unifi"          = ["88.202.151.191"],
+    "webmail"        = ["88.202.151.191"],
     "*.k8s.home"     = ["88.202.151.191"],
   }
   domain  = desec_domain.blrobinson-uk.name
@@ -106,6 +107,7 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
     "shed-cam"                    = ["2a06:61c2:27ae:2::3"],
     "foundry"                     = ["2a06:61c2:27ae:2::3"],
     "home-assistant"              = ["2a06:61c2:27ae:2::3"],
+    "webmail"                     = ["2a06:61c2:27ae:2::3"],
     "container-registry.k8s.home" = ["2a06:61c2:27ae:2::3"],
     "prometheus.k8s.home"         = ["2a06:61c2:27ae:2::3"],
     "grafana.k8s.home"            = ["2a06:61c2:27ae:2::3"],
