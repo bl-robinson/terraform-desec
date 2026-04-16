@@ -113,6 +113,7 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
     "grafana.k8s.home"            = ["2a06:61c2:27ae:2::3"],
     "alertmanager.k8s.home"       = ["2a06:61c2:27ae:2::3"],
     "vaultwarden.k8s.home"        = ["2a06:61c2:27ae:2::3"],
+    "open-webui.k8s.home"         = ["2a06:61c2:27ae:2::3"],
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
