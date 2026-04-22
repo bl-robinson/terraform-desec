@@ -70,17 +70,24 @@ resource "desec_rrset" "blrobinson-uk-mlsned2-mta" {
 
 resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
-    "www"            = ["88.202.151.191"],
-    "adguard"        = ["88.202.151.191"],
-    "foundry"        = ["88.202.151.191"],
-    "grabs"          = ["88.202.151.191"],
-    "home-assistant" = ["88.202.151.191"],
-    "immich"         = ["88.202.151.191"],
-    "mail"           = ["88.202.151.191"],
-    "shed-cam"       = ["88.202.151.191"],
-    "unifi"          = ["88.202.151.191"],
-    "webmail"        = ["88.202.151.191"],
-    "*.k8s.home"     = ["88.202.151.191"],
+    "www"                     = ["88.202.151.191"],
+    "adguard"                 = ["88.202.151.191"],
+    "foundry"                 = ["88.202.151.191"],
+    "grabs"                   = ["88.202.151.191"],
+    "home-assistant"          = ["88.202.151.191"],
+    "immich"                  = ["88.202.151.191"],
+    "mail"                    = ["88.202.151.191"],
+    "shed-cam"                = ["88.202.151.191"],
+    "unifi"                   = ["88.202.151.191"],
+    "webmail"                 = ["88.202.151.191"],
+    "vpn"                     = ["88.202.151.191"],
+    "container-registry.k8s.home" = ["88.202.151.191"],
+    "prometheus.k8s.home"         = ["88.202.151.191"],
+    "grafana.k8s.home"            = ["88.202.151.191"],
+    "alertmanager.k8s.home"       = ["88.202.151.191"],
+    "vaultwarden.k8s.home"        = ["88.202.151.191"],
+    "open-webui.k8s.home"         = ["88.202.151.191"],
+    "hubble.k8s.home"             = ["88.202.151.191"],
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
@@ -99,6 +106,7 @@ resource "desec_rrset" "blrobinson-uk-As" {
 resource "desec_rrset" "blrobinson-uk-AAAAs" {
   for_each = {
     ""                            = ["2a06:61c2:27ae:2::3"],
+    "vpn"                         = ["2a06:61c2:27ae::"]
     "www"                         = ["2a06:61c2:27ae:2::3"],
     "unifi"                       = ["2a06:61c2:27ae:2::3"],
     "adguard"                     = ["2a06:61c2:27ae:2::3"],
@@ -114,6 +122,7 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
     "alertmanager.k8s.home"       = ["2a06:61c2:27ae:2::3"],
     "vaultwarden.k8s.home"        = ["2a06:61c2:27ae:2::3"],
     "open-webui.k8s.home"         = ["2a06:61c2:27ae:2::3"],
+    "hubble.k8s.home"             = ["2a06:61c2:27ae:2::3"],
   }
   domain  = desec_domain.blrobinson-uk.name
   subname = each.key
