@@ -108,6 +108,7 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
   for_each = {
     ""                            = ["2a06:61c2:27ae:2::3"],
     "vpn"                         = ["2a06:61c2:27ae::"]
+    "audiobooks"                  = ["2a06:61c2:27ae:2::3"],
     "www"                         = ["2a06:61c2:27ae:2::3"],
     "unifi"                       = ["2a06:61c2:27ae:2::3"],
     "adguard"                     = ["2a06:61c2:27ae:2::3"],
