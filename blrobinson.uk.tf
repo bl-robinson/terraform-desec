@@ -71,6 +71,7 @@ resource "desec_rrset" "blrobinson-uk-mlsned2-mta" {
 resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
     "www"                     = ["88.202.151.191"],
+    "audiobooks"              = ["88.202.151.191"],
     "adguard"                 = ["88.202.151.191"],
     "foundry"                 = ["88.202.151.191"],
     "grabs"                   = ["88.202.151.191"],
