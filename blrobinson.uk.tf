@@ -50,11 +50,19 @@ resource "desec_rrset" "blrobinson-uk-dmarc-TXT" {
   ttl = 3600
 }
 
+resource "desec_rrset" "blrobinson-uk-mlsned1-CNAME" {
+  domain = desec_domain.blrobinson-uk.name
+  subname = "ms1._domainkey"
+  type = "CNAME"
+  records = ["ms1._domainkey.mailersend.net."]
+  ttl = 3600
+}
+
 resource "desec_rrset" "blrobinson-uk-mlsned2-CNAME" {
   domain = desec_domain.blrobinson-uk.name
-  subname = "mlsend2._domainkey"
+  subname = "ms2._domainkey"
   type = "CNAME"
-  records = ["mlsend2._domainkey.mailersend.net."]
+  records = ["ms2._domainkey.mailersend.net."]
   ttl = 3600
 }
 
