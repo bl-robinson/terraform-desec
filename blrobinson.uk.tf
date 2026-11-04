@@ -80,6 +80,7 @@ resource "desec_rrset" "blrobinson-uk-As" {
   for_each = {
     "www"                     = ["88.202.151.191"],
     "audiobooks"              = ["88.202.151.191"],
+    "obsidian-sam-sync"       = ["88.202.151.191"],
     "obsidian-sync"           = ["88.202.151.191"],
     "obsidian"                = ["88.202.151.191"],
     "adguard"                 = ["88.202.151.191"],
@@ -119,6 +120,7 @@ resource "desec_rrset" "blrobinson-uk-AAAAs" {
     ""                            = ["2a06:61c2:27ae:2::3"],
     "vpn"                         = ["2a06:61c2:27ae::"]
     "audiobooks"                  = ["2a06:61c2:27ae:2::3"],
+    "obsidian-sam-sync"           = ["2a06:61c2:27ae:2::3"],
     "obsidian-sync"               = ["2a06:61c2:27ae:2::3"],
     "obsidian"                    = ["2a06:61c2:27ae:2::3"],
     "www"                         = ["2a06:61c2:27ae:2::3"],
